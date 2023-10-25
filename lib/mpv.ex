@@ -1,18 +1,11 @@
 defmodule Mpv do
-  @moduledoc """
-  Documentation for `Mpv`.
-  """
+  @spec binary_path :: Path.t()
+  def binary_path do
+    Application.get_env(:mpv, :binary_path)
+  end
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Mpv.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def sample_path do
+    {:ok, dir} = File.cwd()
+    Path.join(dir, "tmp/sample.mp3")
   end
 end
