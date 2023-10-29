@@ -6,7 +6,9 @@ defmodule Mpv.Request do
     :duration,
     :"media-title",
     :metadata,
+    :"mpv-version",
     :pause,
+    :"property-list",
     :seekable,
     :"time-pos",
     :"time-remaining",
@@ -24,6 +26,11 @@ defmodule Mpv.Request do
 
   def get_property(prop) when prop in @properties do
     command(:get_property, [prop])
+  end
+
+  def load_file(path) when is_binary(path) do
+    url = "file://#{path}"
+    command(:loadfile, [url])
   end
 
   def pause do

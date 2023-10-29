@@ -6,7 +6,7 @@ This library assumes that mpv is already installed on your system, it then start
 ## Example
 
 ```elixir
-{:ok, mpv} = Mpv.start_link(filepath: "my_podcast.mp3")
+{:ok, mpv} = Mpv.start_link("my_podcast.mp3")
 {:ok, 358.182} = Mpv.duration(mpv) # the duration in seconds
 {:ok, "Why Elixir Is Awesome"} = Mpv.title(mpv) # get the title of the track
 :ok = Mpv.play(mpv) # start playing the audio
